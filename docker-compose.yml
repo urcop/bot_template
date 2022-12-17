@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  bot:
+    build:
+      context: .
+    working_dir: "/usr/src/app/standoffbot"
+    volumes:
+      - .:/usr/src/app/standoffbot
+    command: python3 -m bot
+    restart: always
+    env_file:
+      - ".env"
