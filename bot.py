@@ -30,7 +30,7 @@ async def main():
     config = load_config('.env')
 
     bot = Bot(token=config.bot.token, parse_mode='HTML')
-    storage = RedisStorage2() if config.bot.use_redis else MemoryStorage
+    storage = RedisStorage2() if config.bot.use_redis else MemoryStorage()
     dp = Dispatcher(bot, storage=storage)
 
     bot['config'] = config
